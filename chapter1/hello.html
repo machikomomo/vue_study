@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>chapter1_hello</title>
-    <!-- 引入vue -->
+    <!-- head里面放title和引入vue -->
     <script src="../js/vue.js"></script>
 </head>
 <body>
     <!-- 准备好一个容器 -->
-    <div id="root">
-        <h1>hello, {{name}}</h1>
+    <div id="root0">
+        <h1>hello, {{name.toUpperCase()}}, {{address}},{{Date.now()}}</h1>
+    </div>
+    <div id="root1">
+        <h1>hello, {{name}}, {{address}}</h1>
     </div>
 
     <script>
@@ -17,12 +20,20 @@
 
         // 创建vue实例
         new Vue({
-            el:'#root', //el（element）用于指定当前Vue实例为哪个容器服务，这里为名为root的容器服务，值通常为css选择器字符串
+            el:'#root0', //el（element）用于指定当前Vue实例为哪个容器服务，这里为名为root的容器服务，值通常为css选择器字符串
             data:{ // data中用于存储数据，数据供el所指定的容器所使用
-                name:'moka'
+                name:'moka',
+                address:'0'
             }
         })
         //test
+        new Vue({
+            el:'#root1',
+            data:{
+                name:'profound',
+                address:'1'
+            }
+        })
     </script>
     
 </body>
